@@ -1,0 +1,47 @@
+{
+  "name": "cpms-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bootstrap.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "upload-akrivia": "rsync -avHe ssh --exclude .git --exclude node_modules --exclude .vscode --exclude .gitignore --exclude src/knex.js ~/ddrive/wip/cpms/server/ akrivia@192.168.0.101:/opt/lampp/htdocs/cpms/server/",
+    "lint": "node node_modules/eslint/bin/eslint.js src",
+    "compile": "rollup src/index.js --o server.js -f umd --name 'cpms-server'",
+    "build": "pkg -t node8-win server.js --output cpms-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "bcrypt": "^1.0.3",
+    "del": "^3.0.0",
+    "generate-password": "^1.4.0",
+    "hapi": "^17.2.0",
+    "hapi-auth-jwt": "^4.0.0",
+    "hapi-auth-jwt2": "^7.4.1",
+    "hapi-cors-headers": "^1.0.3",
+    "inert": "^5.1.0",
+    "jsonwebtoken": "^8.1.0",
+    "knex": "^0.14.2",
+    "moment": "^2.20.1",
+    "mysql": "^2.15.0",
+    "request": "^2.83.0",
+    "underscore": "^1.8.3",
+    "winston": "^2.4.0",
+    "winston-daily-rotate-file": "^1.7.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.5.0",
+    "eslint-plugin-react": "^7.5.1",
+    "prettier": "^1.10.2"
+  }
+}
